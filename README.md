@@ -18,8 +18,9 @@ gpg --import secure-org_pubkey.asc
 ```
 
 # Running demo
+Checking if things works, including modification of playbook
 ```
-sh ansible-isolated/scripts/ansible-isolated.sh 
+# sh ansible-isolated/scripts/ansible-isolated.sh 
 [OK   ] GPG signature verification succeeded.
 [OK   ] Checksum validation succeeded.
 
@@ -33,6 +34,15 @@ ok: [localhost]
 
 PLAY RECAP **************************************************************************************************************************************************************************
 localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+# echo "" >>ansible-isolated/playbooks/ping.yml 
+# sh ansible-isoated/scripts/ansible-isolated.sh 
+[OK   ] GPG signature verification succeeded.
+[ERROR] Checksum validation failed.
+[ERROR] Checksum mismatch: playbooks/ping.yml
+Error: Cannot validate inventory / playbook.
+# grep ansible-isolated /var/log/messages 
+Jun 12 07:53:24 ots ansible-isolated[17567]: CRITICAL: failed to validate content.
 ```
 
 # Running script on a schedule using cron
