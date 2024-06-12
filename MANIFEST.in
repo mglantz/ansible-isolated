@@ -1,2 +1,3 @@
 include inventory
 recursive-include playbooks *.yml
+recursive-exclude * .git/*
