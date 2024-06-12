@@ -1,9 +1,10 @@
 # Isolated use of ansible-sign
 * Crontab runs script
-* Script validates gpg signature of project
-* Script applies automation
+* Script runs ansible-sign to validate these instructions (README.md), public key, inventory, playbook and script
+* Script runs playbook if it checks out
+* Script logs to /var/log/messages
 
-# Installing demo
+# Installation
 ```
 dnf install python3-pip git
 
