@@ -1,9 +1,4 @@
 include inventory
-include LICENSE
-include README.md
-include ansible-sign.png
-include secure-org_pubkey.asc
-recursive-include .ansible-sign *
 recursive-include playbooks *.yml
 recursive-exclude * .git/*
 recursive-exclude .git *
